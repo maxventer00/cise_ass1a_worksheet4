@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { BrowserRouter as Router } from "react-router-dom";
+import { Route, NavLink, BrowserRouter as Router } from "react-router-dom";
 
 function App() {
   return (
@@ -9,16 +9,22 @@ function App() {
         <h1>Software Engineering Practice Evidence Repository (SEPER)</h1>
         <ul className="header">
           <li>
-            <a href="/">Home</a>
+            <NavLink exact to="/">
+              Home
+            </NavLink>
           </li>
           <li>
-            <a href="/SEPractice">Select the Practice</a>
+            <NavLink to="/SEPractice">Select the Practice</NavLink>
           </li>
           <li>
-            <a href="/SubmitArticle">Submit an Article</a>
+            <NavLink to="/SubmitArticle">Submit an Article</NavLink>
           </li>
         </ul>
-        <div className="content"></div>
+        <div className="content">
+          <Route exact path="/" component={Home} />
+          <Route path="/SEPractice" component={SEPractice} />
+          <Route path="/SubmitArticle" component={SubmitArticle} />
+        </div>
       </div>
     </Router>
   );
