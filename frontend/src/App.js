@@ -1,6 +1,9 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { Route, NavLink, BrowserRouter as Router } from "react-router-dom";
+import Home from "./pages/Home";
+import SEPractice from "./pages/SE-Practice";
+import SubmitArticle from "./pages/Submit-Article";
 
 function App() {
   return (
