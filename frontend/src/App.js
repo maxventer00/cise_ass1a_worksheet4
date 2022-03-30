@@ -1,9 +1,15 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { Route, NavLink, BrowserRouter as Router } from "react-router-dom";
+import {
+  Route,
+  NavLink,
+  BrowserRouter as Router,
+  Redirect,
+} from "react-router-dom";
 import Home from "./pages/Home";
 import SEPractice from "./pages/SE-Practice";
 import SubmitArticle from "./pages/Submit-Article";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   return (
@@ -27,6 +33,8 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/SEPractice" component={SEPractice} />
           <Route path="/SubmitArticle" component={SubmitArticle} />
+          <Route exact path="/404" component={NotFoundPage} />
+          <Redirect to="/404" />
         </div>
       </div>
     </Router>
