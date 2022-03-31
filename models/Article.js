@@ -32,6 +32,10 @@ const ArticleSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  sepractice: {
+    type: String,
+    required: true,
+  },
 });
 
 module.exports = Article = mongoose.model("article", ArticleSchema);
