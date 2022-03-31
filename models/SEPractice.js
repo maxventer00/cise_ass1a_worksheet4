@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const SEPracticesSchema = new mongoose.Schema({
+const SEPracticeSchema = new mongoose.Schema({
   _id: {
     type: String,
     required: true,
@@ -11,4 +11,4 @@ const SEPracticesSchema = new mongoose.Schema({
   },
 });
 
-module.exports = SEPractices = mongoose.model("sepractices", SEPracticesSchema);
+module.exports = SEPractice = mongoose.model("sepractice", SEPracticeSchema);

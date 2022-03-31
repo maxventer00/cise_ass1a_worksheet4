@@ -4,7 +4,7 @@ var cors = require("cors");
 
 // routes
 const articles = require("./routes/api/articles");
-const SEPractices = require("./routes/api/SEpractices");
+const SEPractices = require("./routes/api/sepractices");
 
 const app = express();
 
@@ -19,7 +19,7 @@ app.use(express.json({ extended: false }));
 
 // use Routes
 app.use("/api/articles", articles);
-app.use("/api/SEpractices", SEPractices);
+app.use("/api/sepractices", SEPractices);
 
 const port = process.env.PORT || 8082;
 

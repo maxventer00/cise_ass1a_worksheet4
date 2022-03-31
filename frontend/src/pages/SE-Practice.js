@@ -25,10 +25,6 @@ function SEPractice() {
       });
   }, [userSelection]);
 
-  useEffect(() => {
-    console.log(apiArticles);
-  }, []);
-
   return (
     <div>
       <h2>Select SE Practice to get evidence for the claimed benefits</h2>

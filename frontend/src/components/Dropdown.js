@@ -11,7 +11,7 @@ const DropDown = ({ sendDataToParent }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8082/api/SEPractices")
+      .get("http://localhost:8082/api/sepractices")
       .then((res) => {
         setSEPractices(res.data);
       })
@@ -20,15 +20,15 @@ const DropDown = ({ sendDataToParent }) => {
       });
   }, []);
 
-  const optionItems = SEPractices.map((SEPractice) => (
-    <option key={SEPractice.practice}>{SEPractice.practice}</option>
-  ));
-
   return (
     <div>
       <select onChange={(e) => handleChange(e)}>
         <option value="">Select an SE Practice </option>
-        {optionItems}
+        {SEPractices
+          ? SEPractices.map((SEPractice) => (
+              <option key={SEPractice.practice}>{SEPractice.practice}</option>
+            ))
+          : null}
       </select>
     </div>
   );

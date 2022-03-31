@@ -7,16 +7,16 @@ const SEPractice = require("../../models/SEPractice");
 // @route GET api/SEPractice/test
 // @description tests SEPractices route
 // @access Public
-router.get("/test", (req, res) => res.send("SEPractices route testing!"));
+router.get("/test", (req, res) => res.send("sepractices route testing!"));
 
 // @route GET api/SEPractice
 // @description Get all SEPractices
 // @access Public
 router.get("/", (req, res) => {
   SEPractice.find()
-    .then((SEPractices) => res.json(SEPractices))
+    .then((sepractices) => res.json(sepractices))
     .catch((err) =>
-      res.status(404).json({ noSEPracticesfound: "No SEPractices found" })
+      res.status(404).json({ nosepracticesfound: "No SEPractices found" })
     );
 });
 
