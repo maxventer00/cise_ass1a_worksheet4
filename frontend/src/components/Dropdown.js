@@ -5,12 +5,19 @@ const optionItems = SEPractices.map((SEPractice) => (
   <option key={SEPractice.practice}>{SEPractice.practice}</option>
 ));
 
-function DropDown() {
+const DropDown = ({ sendDataToParent }) => {
+  const handleChange = (e) => {
+    sendDataToParent(e.target.value);
+  };
+
   return (
     <div>
-      <select>{optionItems}</select>
+      <select onChange={(e) => handleChange(e)}>
+        <option value="">Select an SE Practice </option>
+        {optionItems}
+      </select>
     </div>
   );
-}
+};
 
-export default Dropdown;
+export default DropDown;
