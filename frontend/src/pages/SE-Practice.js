@@ -1,17 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Styles from "../components/tablestyle";
-import articles from "../dummydata/articles";
+// import articles from "../dummydata/articles";
 import tablecolumns from "../components/tablecolumns";
 import Table from "../components/Evidencetable";
 import Dropdown from "../components/Dropdown";
+import axios from "axios";
 
 function SEPractice() {
   const [userSelection, setUserSelection] = useState("");
+  const [apiArticles, setApiArticles] = useState();
 
   const sendDataToParent = (index) => {
-    console.log(index);
     setUserSelection(index);
   };
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8082/api/articles")
+      .then((res) => {
+        setApiArticles(res.data);
+      })
+      .catch((err) => {
+        console.log("Error from getting Articles");
+      });
+  }, [userSelection]);
+
+  useEffect(() => {
+    console.log(apiArticles);
+  }, []);
 
   return (
     <div>
@@ -20,7 +36,7 @@ function SEPractice() {
       {userSelection === "TDD" ? (
         <>
           <Styles>
-            <Table data={articles} columns={tablecolumns} />
+            <Table data={apiArticles} columns={tablecolumns} />
           </Styles>
         </>
       ) : null}
